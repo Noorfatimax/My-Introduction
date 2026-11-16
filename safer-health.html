@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Safer Health — Case Study — Noor Fatima</title>
-<meta name="description" content="[PLACEHOLDER] One-sentence summary of the Safer Health case study.">
+<meta name="description" content="Designing admin, pharmacy, provider and patient tools for a compounding pharmacy marketplace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -149,6 +149,19 @@ section{position:relative}
 .loc i{display:inline-block;width:9px;height:9px;background:currentColor;margin-right:10px}
 .credit{font:14px var(--m);color:#6E6E6E;margin-top:36px}
 
+
+/* Role matrix */
+.matrix{border-top:1px solid var(--pline)}
+.mr{display:grid;grid-template-columns:.8fr 1fr 1fr 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--pline);font-size:14px;line-height:1.45}
+.mr b{font:600 13px var(--m)}
+.mr span{color:var(--pmuted)}
+.mh span{font:500 11px var(--f);letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){.mr{grid-template-columns:1fr}.mh{display:none}.mr span::before{content:attr(data-l);display:block}}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.cap{font-size:12px;color:#6E6E73;margin-top:10px}
+.mini{display:flex;gap:8px;margin-top:12px}.mini span{font-size:12px;padding:7px 12px;border-radius:9px;background:rgba(0,0,0,.06)}
+.mini .go{background:#0071E3;color:#fff}
+
 /* Motion (§3.4) */
 .js .reveal{opacity:.3;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
@@ -174,37 +187,39 @@ section{position:relative}
     <div>
       <p class="mono" style="color:var(--pmuted)">[ case study // 2026 ]</p>
       <h1>Safer Health</h1>
-      <p class="lead"><span class="ph">[PLACEHOLDER] One sentence: who it's for, the problem, and what I made.</span></p>
-      <div class="pills"><span>Healthtech</span><span>[Focus]</span><span>[Audience]</span><span>2026</span></div>
-      <p class="stat">[metric 1] (example) · [metric 2] (example)</p>
+      <p class="lead">Designing the admin, pharmacy, provider and patient tools for a compounding pharmacy marketplace, with a focus on provider management, directions (SIG) and products.</p>
+      <div class="pills"><span>Healthtech</span><span>Marketplace</span><span>Admin &amp; role-based tools</span><span>2026</span></div>
+      <p class="stat">4 roles · 3 modules</p>
     </div>
     <div class="vis" role="img" aria-label="Placeholder for hero product mock">
       <div class="mock">
-        <div class="lbl">[ hero mock ]</div>
-        <div class="skel"></div><div class="skel s"></div>
-        <span class="chip">Placeholder</span> <span class="chip warn">Replace me</span>
+        <div class="lbl">Providers</div>
+        <div class="row"><span>Dr. [Name]</span><span class="chip warn">Pending Review</span></div>
+        <div class="skel"></div>
+        <div class="row"><span>Dr. [Name]</span><span class="chip">Active</span></div>
+        <div class="skel s"></div>
+        <p class="cap">[ swap for a real screen ]</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Full-width visual 1 -->
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: full-width hero visual">
-    <b>Full-width visual</b><span>[ 16:9 · replace with image or video · hero overview of the product ]</span>
+    <b>Full-width visual</b><span>[ 16:9 · four roles side by side: Admin, Pharmacy, Provider, Patient ]</span>
   </div>
-  <figcaption>Fig. 01 — [caption]</figcaption>
+  <figcaption>Fig. 01 — The four roles of the platform</figcaption>
 </figure>
-<p class="anim-slot" data-anim="intro">Intro animation: [describe, e.g. product screens assembling]</p>
+<p class="anim-slot" data-anim="intro">Intro animation: [e.g. the four role views assembling around the shared order]</p>
 
 <!-- 2 · AT A GLANCE -->
 <section class="band">
   <div class="wrap">
     <div class="glance reveal">
-      <div><span class="eyebrow">Role</span><p class="ph">[Your role]</p></div>
-      <div><span class="eyebrow">Team</span><p class="ph">[Team size / roles]</p></div>
-      <div><span class="eyebrow">Timeline</span><p class="ph">[Duration]</p></div>
-      <div><span class="eyebrow">Platform</span><p class="ph">[Web / iOS / Android]</p></div>
+      <div><span class="eyebrow">Role</span><p>Product designer, Staunch</p></div>
+      <div><span class="eyebrow">Owned</span><p>Provider management (admin) · Directions (all roles) · Products (all roles)</p></div>
+      <div><span class="eyebrow">Timeline</span><p class="ph">[Start – end, e.g. Sep – Nov 2026]</p></div>
+      <div><span class="eyebrow">Platform</span><p>Web · Figma + interactive HTML prototypes</p></div>
     </div>
   </div>
 </section>
@@ -214,137 +229,219 @@ section{position:relative}
   <div class="wrap">
     <span class="eyebrow"><i></i>The problem</span>
     <h2 class="sr">The problem</h2>
-    <p class="lit" id="lit" aria-label="[PLACEHOLDER] The problem in one sentence, naming the human insight.">[PLACEHOLDER] The problem in one sentence, naming the human insight, not the feature.</p>
+    <p class="lit" id="lit" aria-label="A pharmacy marketplace only works if every person sees exactly what they should, and can trust everything they can't see.">A pharmacy marketplace only works if every person sees exactly what they should, and can trust everything they can't see.</p>
     <div class="cols2 reveal" style="margin-top:40px">
-      <p class="body"><span class="ph">[PLACEHOLDER] Paragraph 1: who is affected, what goes wrong, what's at stake.</span></p>
-      <p class="body"><span class="ph">[PLACEHOLDER] Paragraph 2: what existed before and why it wasn't enough.</span></p>
+      <p class="body">Safer Health connects pharmacies, doctors and patients, with a Super Admin overseeing all of it. Money moves through the doctor's Stripe account, pharmacies are paid after a 14-day hold, and the platform sits in the middle. Providers and pharmacies never see each other.</p>
+      <p class="body">I worked on the three seams where that trust is most fragile: who gets to prescribe (provider management), what a prescription says (directions, or SIG), and what can be sold and by whom (products). Every one of them touches all four roles, and each role needs a different view.</p>
     </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
-  <div class="ph-frame" role="img" aria-label="Placeholder: problem visual">
-    <b>Full-width visual</b><span>[ 16:9 · the problem in context: research photo, journey map, or before state ]</span>
+  <div class="ph-frame" role="img" aria-label="Placeholder: system map visual">
+    <b>Full-width visual</b><span>[ 16:9 · system map: pharmacy → admin → provider → patient, with money and approval flows ]</span>
   </div>
-  <figcaption>Fig. 02 — [caption]</figcaption>
+  <figcaption>Fig. 02 — How the platform fits together</figcaption>
 </figure>
 
 <!-- 4 · CONSTRAINTS -->
 <section class="band">
   <div class="wrap">
     <span class="eyebrow"><i></i>Principles &amp; constraints</span>
-    <h2>[Three things that shaped every decision]</h2>
+    <h2>Three rules that shaped every screen</h2>
     <div class="rows reveal">
-      <article><div class="n">01</div><h3>[Principle]</h3><p class="body ph">[One or two sentences.]</p></article>
-      <article><div class="n">02</div><h3>[Principle]</h3><p class="body ph">[One or two sentences.]</p></article>
-      <article><div class="n">03</div><h3>[Constraint]</h3><p class="body ph">[One or two sentences.]</p></article>
+      <article><div class="n">01</div><h3>The platform is the middleman</h3><p class="body">Roles can't open each other's detail pages. Hidden things are simply absent, not greyed out.</p></article>
+      <article><div class="n">02</div><h3>Reversible and attributed</h3><p class="body">Nothing active is hard-deleted. Deactivate or archive instead, and every admin action carries the admin's name.</p></article>
+      <article><div class="n">03</div><h3>Three gates to order</h3><p class="body">A product is orderable only if admin visibility, pharmacy status and the patient's state licence all pass.</p></article>
     </div>
   </div>
 </section>
 
-<!-- 5 · PROCESS (vertical list; 6 steps or fewer could use the pinned timeline instead) -->
+<!-- 5 · ROLE MATRIX -->
+<section class="band">
+  <div class="wrap">
+    <span class="eyebrow"><i></i>My scope across roles</span>
+    <h2>Same three modules, four different views</h2>
+    <div class="matrix reveal" role="table" aria-label="Scope by role">
+      <div class="mr mh" role="row"><span role="columnheader"></span><span role="columnheader">Provider management</span><span role="columnheader">Directions (SIG)</span><span role="columnheader">Products</span></div>
+      <div class="mr" role="row"><b role="rowheader">Super Admin</b><span>Approve, decline, deactivate, edit, tiers, financials</span><span>Library of templates, owner and applies-to</span><span>Approve or decline, taxonomy, pricing, visibility</span></div>
+      <div class="mr" role="row"><b role="rowheader">Pharmacy</b><span>Not visible by design</span><span>Templates per product, builder and custom directions</span><span>Submit, edit, deactivate, request changes</span></div>
+      <div class="mr" role="row"><b role="rowheader">Provider</b><span>Own account, licences, Stripe</span><span>Library plus picker inside a prescription</span><span>Browse by tier price, update pricing</span></div>
+      <div class="mr" role="row"><b role="rowheader">Patient</b><span>Sees "prescribed by"</span><span>Reads directions, can't edit</span><span>Sees medication, price and photo</span></div>
+    </div>
+    <p class="mono ph" style="margin-top:16px">[ Verify the "Not visible by design" cell: the notes flag an open question about what pharmacies may see of the provider. ]</p>
+  </div>
+</section>
+
+<!-- 6 · PROCESS -->
 <section class="band">
   <div class="wrap">
     <span class="eyebrow"><i></i>Process</span>
-    <h2>[How I got from problem to ship]</h2>
+    <h2>From rules to clickable prototype</h2>
     <ol class="steps">
-      <li class="reveal"><span class="n">01</span><h3>[Frame the problem]</h3><p class="body ph">[What I did and learned.]</p></li>
-      <li class="reveal"><span class="n">02</span><h3>[Research / flows]</h3><p class="body ph">[What I did and learned.]</p></li>
-      <li class="reveal"><span class="n">03</span><h3>[Prototype]</h3><p class="body ph">[What I did and learned.]</p></li>
-      <li class="reveal"><span class="n">04</span><h3>[Test with real people]</h3><p class="body ph">[What I did and learned.]</p></li>
-      <li class="reveal"><span class="n">05</span><h3>[Build]</h3><p class="body ph">[What I did and learned.]</p></li>
-      <li class="reveal"><span class="n">06</span><h3>[Ship]</h3><p class="body ph">[What I did and learned.]</p></li>
+      <li class="reveal"><span class="n">01</span><h3>Map the rules</h3><p class="body">Turned the SOW and client decisions into statuses, permissions and edge cases for each role before drawing a screen.</p></li>
+      <li class="reveal"><span class="n">02</span><h3>Design per role in Figma</h3><p class="body">One section per role: auth, dashboard, products, directions, orders, settings, plus empty states, errors and emails.</p></li>
+      <li class="reveal"><span class="n">03</span><h3>Prototype pixel-accurately</h3><p class="body">Built single-file interactive HTML from the Figma exports so the prototype doubles as client demo and developer handoff.</p></li>
+      <li class="reveal"><span class="n">04</span><h3>Review with the client</h3><p class="body">Worked through a feedback queue, for example a sticky status column and a side-by-side renewal view.</p></li>
+      <li class="reveal"><span class="n">05</span><h3>Design enhancements</h3><p class="body">Custom-directions SIG mode, a provider catalog-access tab and a product change approval flow.</p></li>
+      <li class="reveal"><span class="n">06</span><h3>Hand off</h3><p class="body">Documented business rules, open questions and dependency notes for the dev team.</p></li>
     </ol>
   </div>
 </section>
-<p class="anim-slot" data-anim="process">Animation between process and features: [describe]</p>
+<p class="anim-slot" data-anim="process">Animation between process and features: [e.g. rules resolving into screens]</p>
 
-<!-- 6 · KEY DECISIONS / FEATURES -->
+<!-- 7 · KEY DECISIONS -->
 <section class="band" style="padding-bottom:0">
   <div class="wrap">
-    <span class="eyebrow"><i></i>Key decisions &amp; features</span>
-    <h2>[Headline naming the human insight]</h2>
+    <span class="eyebrow"><i></i>Provider management · Admin</span>
+    <h2>Letting an admin trust a doctor, and undo it safely</h2>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Feature 01 · [Name]</div>
-        <h3 style="margin-top:14px">[Feature headline]</h3>
-        <p class="body ph">[Problem it solves, 2–3 sentences.]</p>
-        <p class="because">I chose [X] over [Y] because [Z].</p>
+        <div class="eyebrow">Decision 01 · Review lifecycle</div>
+        <h3 style="margin-top:14px">Four statuses, one reversible path</h3>
+        <p class="body">Providers move through Pending Review, Active, Declined and Inactive. Declining needs a reason so the doctor can fix and resubmit. Deactivating stops new orders and patient assignments at once, while accepted orders are still fulfilled.</p>
+        <p class="because">I chose deactivate over delete, with a confirmation step, because orders in flight still have to be fulfilled and every action needs an audit trail.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">[ feature 01 mock ]</div><div class="skel"></div><div class="skel s"></div><span class="chip">Placeholder</span></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Deactivate provider?</div><div class="skel"></div><div class="skel s"></div><div class="mini"><span>Keep active</span><span class="go">Deactivate anyway</span></div></div></div>
     </div>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Feature 02 · [Name]</div>
-        <h3 style="margin-top:14px">[Feature headline]</h3>
-        <p class="body ph">[Problem it solves, 2–3 sentences.]</p>
-        <p class="because">I chose [X] over [Y] because [Z].</p>
+        <div class="eyebrow">Decision 02 · Financials</div>
+        <h3 style="margin-top:14px">Refunds that stay inside the system</h3>
+        <p class="body">A patient refund goes back into the provider's Credits Reserved, and the next order deducts credits first. Cash refunds happen off-platform, so the admin records them as a manual ledger entry. Add Entry, Manual Adjustment and both refund types live in one tab, next to the pricing tier (10, 20 or 30%, or custom).</p>
+        <p class="because">I chose credits over cash refunds because the provider is merchant of record and money must reconcile on the ledger.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">[ feature 02 mock ]</div><div class="skel"></div><div class="skel s"></div><span class="chip warn">Placeholder</span></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Credits reserved</div><div class="big" style="display:block"><b style="font-size:36px">$[0,000]</b></div><div class="skel s"></div><p class="cap">[ ledger entry mock ]</p></div></div>
     </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
-  <div class="ph-frame" role="img" aria-label="Placeholder: features overview visual">
-    <b>Full-width visual</b><span>[ 16:9 · feature overview, flow, or prototype walkthrough ]</span>
+  <div class="ph-frame" role="img" aria-label="Placeholder: provider management visual">
+    <b>Full-width visual</b><span>[ 16:9 · provider details page: Overview, Orders, Patients, Financials ]</span>
   </div>
-  <figcaption>Fig. 03 — [caption]</figcaption>
+  <figcaption>Fig. 03 — Provider details and financials</figcaption>
 </figure>
-<p class="anim-slot" data-anim="features">Animation: [describe, e.g. flow connecting feature screens]</p>
+<p class="anim-slot" data-anim="provider">Animation: [e.g. status moving Pending Review → Active]</p>
 
-<section class="band" style="border-top:0">
+<section class="band" style="padding-bottom:0;border-top:0">
   <div class="wrap">
-    <div class="decision reveal" style="border-top:0">
+    <span class="eyebrow"><i></i>Directions (SIG) · Every role</span>
+    <h2>Directions that are fast to pick and hard to get wrong</h2>
+
+    <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Feature 03 · [Name]</div>
-        <h3 style="margin-top:14px">[Feature headline]</h3>
-        <p class="body ph">[Problem it solves, 2–3 sentences.]</p>
-        <p class="because">I chose [X] over [Y] because [Z].</p>
+        <div class="eyebrow">Decision 03 · The builder</div>
+        <h3 style="margin-top:14px">A sentence you build, or free text, never both at once</h3>
+        <p class="body">Directions are built as an inline sentence of dropdown and number chips, with correct pluralisation and one optional instruction. A template can also be custom directions only. Editing the full text switches to custom mode and hides the builder, and "Reset to builder" brings it back.</p>
+        <p class="because">I chose one active mode over two parallel inputs because it removes the case where the sentence and the builder disagree.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">[ feature 03 mock ]</div><div class="skel"></div><div class="skel s"></div><span class="chip">Placeholder</span></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Directions</div><p style="font-size:13px;line-height:1.9">Take <span class="chip" style="background:rgba(0,113,227,.12);color:#0057B3">1</span> tablet by mouth <span class="chip" style="background:rgba(0,113,227,.12);color:#0057B3">twice daily</span> for <span class="chip" style="background:rgba(0,113,227,.12);color:#0057B3">7</span> days.</p><p class="cap">[ replace with builder screen ]</p></div></div>
     </div>
-    <p class="mono ph" style="margin-top:8px">[ Duplicate a .decision block for each additional feature ]</p>
+
+    <div class="decision reveal">
+      <div class="copy">
+        <div class="eyebrow">Decision 04 · Inside a prescription</div>
+        <h3 style="margin-top:14px">One field that searches, filters and falls back</h3>
+        <p class="body">When a doctor configures a medication, one field lists directions for that medication from pharmacy templates and their own library. Typing filters them, "+ SIG Builder" opens the builder, and no match becomes free-text custom directions. Patients only read the result.</p>
+        <p class="because">I moved from tabs to a single combined field after testing options with the client, who preferred it. Custom directions don't auto-save to the library; only the builder does.</p>
+      </div>
+      <div class="vis"><div class="mock"><div class="lbl">Directions (SIG)</div><div class="skel"></div><div class="skel"></div><div class="skel s"></div><p class="cap">[ combined-field mock ]</p></div></div>
+    </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
-  <div class="ph-frame" role="img" aria-label="Placeholder: final design visual">
+  <div class="ph-frame" role="img" aria-label="Placeholder: directions visual">
+    <b>Full-width visual</b><span>[ 16:9 · the three states: list on focus, filtered while typing, custom when no match ]</span>
+  </div>
+  <figcaption>Fig. 04 — Directions picker states</figcaption>
+</figure>
+<p class="anim-slot" data-anim="sig">Animation: [e.g. typing filters the list down to one direction]</p>
+
+<section class="band" style="padding-bottom:0;border-top:0">
+  <div class="wrap">
+    <span class="eyebrow"><i></i>Product management · Every role</span>
+    <h2>Deciding what can be sold, and keeping it safe to change</h2>
+
+    <div class="decision reveal">
+      <div class="copy">
+        <div class="eyebrow">Decision 05 · Approval lifecycle</div>
+        <h3 style="margin-top:14px">Pending first, live only when approved</h3>
+        <p class="body">Pharmacies submit products with variations, pricing and directions. Nothing is selectable by doctors until the admin approves. A decline requires a reason, and the pharmacy can edit and resubmit. A product is orderable only if admin visibility, pharmacy status and the patient's state licence all pass.</p>
+        <p class="because">I chose default-allow visibility with admin overrides over per-product grants because it keeps the catalog usable while still letting admin restrict.</p>
+      </div>
+      <div class="vis"><div class="mock"><div class="lbl">Product</div><div class="row"><span>[Name]</span><span class="chip warn">Pending Approval</span></div><div class="skel"></div><div class="mini"><span>Decline</span><span class="go">Approve</span></div></div></div>
+    </div>
+
+    <div class="decision reveal">
+      <div class="copy">
+        <div class="eyebrow">Decision 06 · One shared taxonomy</div>
+        <h3 style="margin-top:14px">Admin owns the lists, pharmacies pick from them</h3>
+        <p class="body">Category, route, dosage form and package type are standardised by the admin. Dosage forms are a tree (route → form → package) with archive instead of delete, inline rename and product-count tooltips. Archiving cascades, and restoring a parent restores its children.</p>
+        <p class="because">I chose archive over delete because products and orders still reference these values.</p>
+      </div>
+      <div class="vis"><div class="mock"><div class="lbl">Dosage forms</div><div class="skel"></div><div class="skel s"></div><div class="skel"></div><p class="cap">[ tree mock ]</p></div></div>
+    </div>
+
+    <div class="decision reveal">
+      <div class="copy">
+        <div class="eyebrow">Decision 07 · Changing a live product</div>
+        <h3 style="margin-top:14px">Stay live on the old values until the new ones are approved</h3>
+        <p class="body">When a pharmacy edits a live product, it keeps selling on the old values while the change waits in an admin review queue. The admin sees previous and updated values and accepts, or declines with a reason. The existing price-change request folds into the same flow.</p>
+        <p class="because">I chose approval for every field because a small change to a medication can be a safety change. Still open with the client: direct edit vs request box.</p>
+      </div>
+      <div class="vis"><div class="mock"><div class="lbl">Requested changes</div><div class="row"><span>Current</span><span>Requested</span></div><div class="skel"></div><div class="skel s"></div><div class="mini"><span>Decline</span><span class="go">Approve changes</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<figure class="fullvis reveal">
+  <div class="ph-frame" role="img" aria-label="Placeholder: product visual">
+    <b>Full-width visual</b><span>[ 16:9 · product lifecycle: submit → review → live → change request ]</span>
+  </div>
+  <figcaption>Fig. 05 — Product lifecycle across pharmacy and admin</figcaption>
+</figure>
+<p class="anim-slot" data-anim="products">Animation: [e.g. product moving through states, old and new values diffing]</p>
+
+<figure class="fullvis reveal">
+  <div class="ph-frame" role="img" aria-label="Placeholder: final designs visual">
     <b>Full-width visual</b><span>[ 16:9 · final designs side by side ]</span>
   </div>
-  <figcaption>Fig. 04 — [caption]</figcaption>
+  <figcaption>Fig. 06 — Final designs</figcaption>
 </figure>
 
-<!-- 7 · OUTCOME -->
+<!-- 8 · OUTCOME -->
 <section class="band">
   <div class="wrap">
     <span class="eyebrow"><i></i>Outcome</span>
-    <h2>[What changed for people]</h2>
+    <h2>What I delivered</h2>
     <div class="big reveal">
-      <div><b>-00%</b><p>[metric label] (example)</p></div>
-      <div><b>0.0/5</b><p>[metric label] (example)</p></div>
-      <div><b>0×</b><p>[metric label] (example)</p></div>
+      <div><b>4</b><p>roles designed end to end</p></div>
+      <div><b>3</b><p>modules owned across them</p></div>
+      <div><b>[00]</b><p>[screens / flows / hours] (example)</p></div>
     </div>
-    <p class="mono ph" style="margin-top:28px">[ Optional: sparkline / meter. Replace every (example) with real data before publishing. ]</p>
+    <p class="body" style="margin-top:28px">Figma flows and pixel-accurate interactive prototypes for each module, used as both client presentation and developer handoff, with decisions and open questions documented.</p>
+    <p class="mono ph" style="margin-top:16px">[ Add real results if you have them: client feedback, adoption, build status. The notes contain no outcome metrics, so none are claimed. ]</p>
   </div>
 </section>
 
-<!-- 8 · REFLECTION -->
+<!-- 9 · REFLECTION -->
 <section class="band">
   <div class="wrap">
     <span class="eyebrow"><i></i>Reflection</span>
     <h2 class="sr">Reflection</h2>
-    <p class="spull reveal" style="margin-top:20px"><span class="ph">[PLACEHOLDER] One honest line about what I'd carry forward.</span></p>
+    <p class="spull reveal" style="margin-top:20px"><span class="ph">[ One honest line about what you'd carry forward, e.g. what designing for four roles at once taught you. ]</span></p>
     <div class="cols2 reveal">
-      <p class="body"><span class="ph">[PLACEHOLDER] What worked.</span></p>
-      <p class="body"><span class="ph">[PLACEHOLDER] What I'd do differently.</span></p>
+      <p class="body"><span class="ph">[ What worked. ]</span></p>
+      <p class="body"><span class="ph">[ What you'd do differently, e.g. open questions you'd close earlier. ]</span></p>
     </div>
   </div>
 </section>
 
-<!-- 9 · NEXT PROJECT -->
+<!-- 10 · NEXT PROJECT -->
 <section class="next" data-nav="light">
   <a href="#" class="wrap">
     <span class="eyebrow">Next project</span>
@@ -352,6 +449,7 @@ section{position:relative}
   </a>
 </section>
 </main>
+
 
 <footer class="foot">
   <div class="wrap">
