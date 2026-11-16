@@ -5,7 +5,7 @@ Purpose: build **case study pages** and the **contact page** so they look and be
 
 ---
 
-> **Update (Nov 2026): no gradients anywhere.** Visual panels and placeholders use solid neutrals only: light gray `#EAEAEA`, beige `#FBF0DF`, dark gray `#2F2F2F`. `--pv1/--pv2` and the 135° gradient wash (§1.6, §2.6) are retired.
+> **Update (Nov 2026): no gradients anywhere.** Visual panels and placeholders use solid neutrals only: light gray `#EAEAEA`, dark gray `#2F2F2F`. `--pv1/--pv2` and the 135° gradient wash (§1.6, §2.6) are retired.
 
 ---
 
