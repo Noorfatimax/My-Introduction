@@ -164,6 +164,48 @@ section{position:relative}
 .mini{display:flex;gap:8px;margin-top:12px}.mini span{font-size:12px;padding:7px 12px;border-radius:9px;background:rgba(0,0,0,.06)}
 .mini .go{background:#0071E3;color:#fff}
 
+
+/* Process: pinned horizontal timeline (solid colours only) */
+.proc{height:calc(100vh + 450vh);height:calc(100svh + 450svh);background:#3A3A3D;color:#EDEDED;border-top:0}
+.pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;padding:clamp(76px,10vh,96px) 0 22px;overflow:hidden}
+.phd .eyebrow{color:#BDBDBD}
+.phead{font:600 clamp(30px,min(5.4vw,8vh),80px)/1.05 var(--m);letter-spacing:-.03em;color:#EDEDED;margin:14px 0 0}
+.scene{flex:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,64px);align-items:center;min-height:0;perspective:1200px}
+.stext{transition:opacity .25s var(--ease)}
+.stext.swap{opacity:0}
+.stag{font:500 11px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:#BDBDBD;display:flex;align-items:center;gap:10px}
+.stag i{width:9px;height:9px;background:currentColor;display:inline-block}
+.stext h3{font:600 clamp(26px,3.4vw,46px)/1.1 var(--m);letter-spacing:-.02em;color:#EDEDED;margin:16px 0 14px}
+.stext p{font:400 clamp(14px,1.25vw,17px)/1.6 var(--m);color:#D0D0D0;max-width:30em}
+.winwrap{transform:rotateY(calc(var(--ry,0) * 1deg)) rotateX(calc(var(--rx,0) * 1deg));transform-style:preserve-3d}
+.win{background:#2A2A2D;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.12);overflow:hidden}
+.win.enter{animation:winIn .7s var(--ease) both}
+@keyframes winIn{from{opacity:0;transform:translate3d(56px,0,-140px) rotateY(14deg)}to{opacity:1;transform:none}}
+.wbar{display:flex;gap:7px;padding:11px 14px;background:#242427}
+.wbar i{width:10px;height:10px;border-radius:50%;background:#FF5F57}
+.wbar i:nth-child(2){background:#FEBC2E}.wbar i:nth-child(3){background:#28C840}
+.wbody{background:#EAEAEA;padding:clamp(16px,2.4vw,28px);min-height:clamp(180px,34vh,320px);display:flex;flex-direction:column;gap:12px;justify-content:center}
+.wl{font:12px var(--m);color:#6E6E73}
+.sk{height:10px;border-radius:5px;background:rgba(0,0,0,.1)}.sk.s{width:60%}
+.win.enter [data-a]{animation:dataIn .6s var(--ease) both;animation-delay:calc(var(--i) * .2s + .25s)}
+@keyframes dataIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* timeline */
+.tl{position:relative;height:122px;flex:none;overflow:hidden}
+.rule{position:absolute;left:0;right:0;top:96px;height:1px;background:rgba(255,255,255,.4)}
+.diamond{position:absolute;left:50%;top:91.5px;width:9px;height:9px;background:#fff;transform:translateX(-50%) rotate(45deg);z-index:2}
+.track{position:absolute;left:50%;top:0;height:100%;display:flex;transform:translateX(var(--x,0));will-change:transform}
+.node{position:relative;flex:none;width:clamp(150px,24vw,300px);text-align:left;background:none;border:0;color:inherit;font:inherit;padding:0 0 0 12px;cursor:pointer;transition:opacity .25s var(--ease)}
+.node .nn{font:12px var(--m);color:#BDBDBD;display:block;margin-top:10px}
+.node .nr{font:500 clamp(12px,1.2vw,17px)/1.25 var(--m);color:#F0F0F0;display:block;margin-top:4px}
+.node .no{font:10px var(--f);letter-spacing:.14em;text-transform:uppercase;color:#BDBDBD;display:block;margin-top:4px}
+.node::after{content:"";position:absolute;left:0;top:78px;height:18px;width:1px;background:rgba(255,255,255,.6)}
+.tk{position:absolute;top:96px;width:1px;height:6px;background:rgba(255,255,255,.4)}
+.node:focus-visible{outline-offset:-3px}
+@media(max-width:900px){.scene{grid-template-columns:1fr;gap:18px;align-content:center}.wbody{min-height:130px}}
+@media(max-width:700px){.node .no{display:none}.tl{height:108px}.rule{top:84px}.diamond{top:79.5px}.node::after{top:66px}.tk{top:84px}}
+@media(max-height:640px){.stext p{display:none}}
+@media(prefers-reduced-motion:reduce){.proc{height:auto}.pin{position:static;height:auto;min-height:100svh}.win.enter,.win.enter [data-a]{animation:none}}
+
 /* Motion (§3.4) */
 .js .reveal{opacity:.3;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
@@ -260,19 +302,36 @@ section{position:relative}
   </div>
 </section>
 
-<!-- 6 · PROCESS -->
-<section class="band">
-  <div class="wrap">
-    <span class="eyebrow"><i></i>Process</span>
-    <h2>From rules to clickable prototype</h2>
-    <ol class="steps">
-      <li class="reveal"><span class="n">01</span><h3>Map the rules</h3><p class="body">Turned the project brief and client decisions into who can do what, and what happens at each step, before drawing a screen.</p></li>
-      <li class="reveal"><span class="n">02</span><h3>Design per role</h3><p class="body">One set of screens per role: sign-in, home, medicines, directions, orders, settings, plus empty states, errors and emails.</p></li>
-      <li class="reveal"><span class="n">03</span><h3>Prototype in high fidelity</h3><p class="body">Built a clickable prototype from the final designs, used for client demos and as a guide for developers.</p></li>
-      <li class="reveal"><span class="n">04</span><h3>Review with the client</h3><p class="body">Worked through client feedback, for example keeping order status always visible and showing the original prescription beside a renewal request.</p></li>
-      <li class="reveal"><span class="n">05</span><h3>Design enhancements</h3><p class="body">Hand-written directions, a way to control which medicines each provider can see, and a review step for changes to live medicines.</p></li>
-      <li class="reveal"><span class="n">06</span><h3>Hand off</h3><p class="body">Wrote down the business rules, open questions and dependencies for the development team.</p></li>
-    </ol>
+<!-- 6 · PROCESS (pinned horizontal timeline, DESIGN_SYSTEM.md 2.11 / 2.12) -->
+<section class="proc" id="process" aria-label="Process">
+  <div class="pin">
+    <div class="wrap phd">
+      <span class="eyebrow"><i></i>Process</span>
+      <h2 class="phead">From rules to clickable prototype</h2>
+    </div>
+    <div class="wrap scene">
+      <div class="stext" aria-live="polite">
+        <div class="stag"><i></i><span id="stag">Step 01</span></div>
+        <h3 id="stitle"></h3>
+        <p id="sbody"></p>
+      </div>
+      <div class="winwrap" id="winwrap">
+        <div class="win" id="win">
+          <div class="wbar"><i></i><i></i><i></i></div>
+          <div class="wbody">
+            <div class="wl" data-a style="--i:0">[ visual for this step ]</div>
+            <div class="sk" data-a style="--i:1"></div>
+            <div class="sk s" data-a style="--i:2"></div>
+            <div class="sk" data-a style="--i:3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tl" id="tl" role="tablist" aria-label="Process steps">
+      <div class="rule"></div><div class="diamond" aria-hidden="true"></div>
+      <div class="track" id="track"></div>
+    </div>
+    <ol class="sr" id="srsteps"></ol>
   </div>
 </section>
 <p class="anim-slot" data-anim="process">Animation between process and features: [e.g. rules resolving into screens]</p>
@@ -473,6 +532,52 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
   var nav=document.querySelector('.nav'),zones=document.querySelectorAll('[data-nav="light"]');
   function chk(){var y=35,on=false;zones.forEach(function(z){var r=z.getBoundingClientRect();if(r.top<=y&&r.bottom>=y)on=true});nav.classList.toggle('on-light',on)}
   addEventListener('scroll',chk,{passive:true});chk();
+})();
+
+/* process: pinned horizontal timeline */
+(function(){
+  var steps=[
+   ["01","Map the rules","Brief","Turned the project brief and client decisions into who can do what, and what happens at each step, before drawing a screen."],
+   ["02","Design per role","Screens","One set of screens per role: sign-in, home, medicines, directions, orders, settings, plus empty states, errors and emails."],
+   ["03","Prototype in high fidelity","Prototype","Built a clickable prototype from the final designs, used for client demos and as a guide for developers."],
+   ["04","Review with the client","Feedback","Worked through client feedback, for example keeping order status always visible and showing the original prescription beside a renewal request."],
+   ["05","Design enhancements","Improve","Hand-written directions, a way to control which medicines each provider can see, and a review step for changes to live medicines."],
+   ["06","Hand off","Handoff","Wrote down the business rules, open questions and dependencies for the development team."]
+  ];
+  var n=steps.length,sec=document.getElementById('process'),track=document.getElementById('track'),
+      stext=document.querySelector('.stext'),stag=document.getElementById('stag'),stitle=document.getElementById('stitle'),
+      sbody=document.getElementById('sbody'),win=document.getElementById('win'),wrap=document.getElementById('winwrap'),sr=document.getElementById('srsteps');
+  if(!sec)return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,nodes=[],active=-1,nw=300,tick=null;
+  steps.forEach(function(st,i){
+    var b=document.createElement('button');b.type='button';b.className='node';b.setAttribute('role','tab');b.id='tab'+i;
+    b.innerHTML='<span class="nn">'+st[0]+'</span><span class="nr">'+st[1]+'</span><span class="no">'+st[2]+'</span>';
+    b.addEventListener('click',function(){goTo(i)});track.appendChild(b);nodes.push(b);
+    for(var k=1;k<5;k++){var t=document.createElement('span');t.className='tk';t.dataset.i=i;t.dataset.k=k;track.appendChild(t)}
+    var li=document.createElement('li');li.textContent=st[1]+'. '+st[3];sr.appendChild(li);
+  });
+  function measure(){nw=nodes[0].getBoundingClientRect().width||300;
+    track.querySelectorAll('.tk').forEach(function(t){t.style.left=(+t.dataset.i*nw+t.dataset.k*nw/5)+'px'})}
+  function setActive(i){
+    if(i===active)return;var first=active<0;active=i;
+    nodes.forEach(function(nd,j){nd.setAttribute('aria-selected',j===i?'true':'false');nd.tabIndex=j===i?0:-1});
+    function apply(){var st=steps[i];stag.textContent='Step '+st[0];stitle.textContent=st[1];sbody.textContent=st[3];
+      stext.classList.remove('swap');win.classList.remove('enter');void win.offsetWidth;win.classList.add('enter')}
+    if(first||reduce){apply()}else{stext.classList.add('swap');setTimeout(apply,150)}
+  }
+  function place(f){
+    track.style.setProperty('--x',(-f*nw)+'px');
+    nodes.forEach(function(nd,j){nd.style.opacity=Math.max(.22,Math.min(1,1-Math.abs(j-f)*.62))});
+  }
+  function progress(){var r=sec.getBoundingClientRect(),h=sec.offsetHeight-innerHeight;return h>0?Math.min(1,Math.max(0,-r.top/h)):0}
+  function upd(){tick=null;var p=progress(),f=p*(n-1);place(f);setActive(Math.min(n-1,Math.round(f)));
+    wrap.style.setProperty('--ry',((p-.5)*-8).toFixed(2));wrap.style.setProperty('--rx',((p-.5)*3).toFixed(2))}
+  function goTo(i){
+    if(reduce||sec.offsetHeight<=innerHeight+10){place(i);setActive(i);return}
+    var top=sec.getBoundingClientRect().top+scrollY,h=sec.offsetHeight-innerHeight;
+    scrollTo({top:top+(i/(n-1))*h,behavior:'smooth'})}
+  measure();addEventListener('resize',function(){measure();upd()});
+  if(reduce){place(0);setActive(0)}else{addEventListener('scroll',function(){if(!tick)tick=requestAnimationFrame(upd)},{passive:true});upd()}
 })();
 </script>
 </body>
