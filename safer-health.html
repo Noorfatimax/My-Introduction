@@ -23,7 +23,7 @@
 body.pc-healthtech{
   --pbg:#0A0A0A; --pink:#F2F2F2; --pmuted:#A8A8A8; --pline:rgba(242,242,242,.3);
   --ptag:rgba(255,255,255,.1);
-  --pv1:oklch(.82 .11 15); --pv2:oklch(.88 .10 60);
+  --tone-gray:#EAEAEA; --tone-beige:#FBF0DF; --tone-dark:#2F2F2F; /* solid neutrals only, no gradients */
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
@@ -60,7 +60,8 @@ section{position:relative}
 .pills span{font:12px var(--f);padding:5px 11px;border-radius:8px;background:var(--ptag);color:var(--pink)}
 .stat{font:12px var(--m);color:var(--pmuted);margin-top:16px}
 .vis{border-radius:var(--r-2xl);min-height:340px;padding:clamp(20px,3vw,44px);display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--pv1),var(--pv2))}
+  background:var(--tone-gray)}
+.decision:nth-of-type(even) .vis{background:var(--tone-beige)}
 .mock{background:#fff;color:#1D1D1F;border-radius:var(--r-xl);width:100%;max-width:290px;padding:16px;font-size:14px;
   box-shadow:0 12px 36px rgba(0,0,0,.18);transition:transform .6s var(--ease)}
 .hero:hover .mock{transform:translateY(-6px) scale(1.02)}
@@ -108,11 +109,11 @@ section{position:relative}
    keep the figure. data-anim marks where an animation will go. */
 .fullvis{margin:0;width:100%}
 .fullvis .ph-frame{width:100%;aspect-ratio:16/9;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  text-align:center;background:linear-gradient(135deg,var(--pv1),var(--pv2));color:#1D1D1F;position:relative;overflow:hidden}
-.fullvis .ph-frame::after{content:"";position:absolute;inset:0;background:
-  repeating-linear-gradient(45deg,rgba(0,0,0,.05) 0 1px,transparent 1px 14px)}
-.fullvis .ph-frame b{font:600 clamp(18px,2.4vw,30px) var(--m);letter-spacing:-.02em;z-index:1}
-.fullvis .ph-frame span{font:12px var(--m);z-index:1;opacity:.75}
+  text-align:center;background:var(--tone-gray);color:#1D1D1F}
+.fullvis:nth-of-type(even) .ph-frame{background:var(--tone-beige)}
+.fullvis:nth-of-type(3n) .ph-frame{background:var(--tone-dark);color:#F2F2F2}
+.fullvis .ph-frame b{font:600 clamp(18px,2.4vw,30px) var(--m);letter-spacing:-.02em}
+.fullvis .ph-frame span{font:12px var(--m);opacity:.75}
 .fullvis figcaption{font:12px var(--m);color:var(--pmuted);padding:12px max(16px,env(safe-area-inset-left,0px))}
 .anim-slot{border:1px dashed var(--pline);color:var(--pmuted);font:12px var(--m);text-align:center;padding:18px 16px;margin:0}
 .anim-slot::before{content:"[ ANIMATION ] "}
@@ -133,9 +134,9 @@ section{position:relative}
 .spull{border-left:2px solid var(--pink);padding-left:20px;font:600 clamp(16px,1.6vw,20px)/1.5 var(--m);max-width:34em;margin-bottom:28px}
 
 /* Next project */
-.next{background:oklch(.91 .07 175);color:oklch(.27 .05 190);padding:clamp(72px,10vw,140px) 0;text-align:center}
+.next{background:var(--tone-gray);color:#222222;padding:clamp(72px,10vw,140px) 0;text-align:center}
 .next a{text-decoration:none;display:block}
-.next .eyebrow{color:oklch(.4 .05 190)}
+.next .eyebrow{color:#555}
 .next h2{font-size:clamp(44px,9vw,120px);font-weight:600;letter-spacing:-.04em;line-height:1;margin-top:18px}
 .next h2 .arr{font-size:.5em;display:inline-block;transition:transform .35s var(--ease)}
 .next a:hover .arr{transform:translate(2px,-2px)}
