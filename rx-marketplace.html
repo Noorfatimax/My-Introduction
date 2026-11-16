@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Rx Marketplace — Case Study — Noor Fatima</title>
-<meta name="description" content="Designing admin, pharmacy, provider and patient tools for a compounding pharmacy marketplace.">
+<meta name="description" content="Designing the admin team, pharmacy, provider and patient apps for a compounding pharmacy marketplace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -189,15 +189,15 @@ section{position:relative}
     <div>
       <p class="mono" style="color:var(--pmuted)">[ Rx Marketplace // case study // 2026 ]</p>
       <h1>A pharmacy marketplace everyone can trust</h1>
-      <p class="lead">I designed how providers get approved, how prescription directions are written, and how products are added and changed. So each person sees only what they should, and nothing slips through.</p>
-      <div class="pills"><span>Healthtech</span><span>Marketplace</span><span>Admin &amp; role-based tools</span><span>2026</span></div>
-      <p class="stat">4 roles · 3 modules</p>
+      <p class="lead">I designed how providers get verified, how prescription directions are written, and how medicines are added and changed. So each person sees only what they should, and nothing slips through.</p>
+      <div class="pills"><span>Healthtech</span><span>Marketplace</span><span>A separate app for each role</span><span>2026</span></div>
+      <p class="stat">4 roles · 3 areas</p>
       <p class="nda">Confidential project. Names, data and visuals have been changed and screens redrawn. The problems, decisions and process are real. Happy to walk through more detail live.</p>
     </div>
     <div class="vis" role="img" aria-label="Placeholder for hero product mock">
       <div class="mock">
         <div class="lbl">Providers</div>
-        <div class="row"><span>[Provider name]</span><span class="chip warn">Pending Review</span></div>
+        <div class="row"><span>[Provider name]</span><span class="chip warn">Waiting for verification</span></div>
         <div class="skel"></div>
         <div class="row"><span>[Provider name]</span><span class="chip">Active</span></div>
         <div class="skel s"></div>
@@ -209,18 +209,18 @@ section{position:relative}
 
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: full-width hero visual">
-    <b>Full-width visual</b><span>[ 16:9 · four roles side by side: Admin, Pharmacy, Provider, Patient ]</span>
+    <b>Full-width visual</b><span>[ 16:9 · four apps side by side: admin team, pharmacy, provider, patient ]</span>
   </div>
-  <figcaption>Fig. 01 — The four roles of the platform</figcaption>
+  <figcaption>Fig. 01 — The four roles, each with their own app</figcaption>
 </figure>
-<p class="anim-slot" data-anim="intro">Intro animation: [e.g. the four role views assembling around the shared order]</p>
+<p class="anim-slot" data-anim="intro">Intro animation: [e.g. the four apps assembling around one order]</p>
 
 <!-- 2 · AT A GLANCE -->
 <section class="band">
   <div class="wrap">
     <div class="glance reveal">
       <div><span class="eyebrow">Role</span><p>Product designer, agency team</p></div>
-      <div><span class="eyebrow">Owned</span><p>Provider management (admin) · Directions (all roles) · Products (all roles)</p></div>
+      <div><span class="eyebrow">Owned</span><p>Verifying providers (admin team) · Prescription directions (all roles) · Medicines (all roles)</p></div>
       <div><span class="eyebrow">Timeline</span><p class="ph">[Start – end, e.g. Sep – Nov 2026]</p></div>
       <div><span class="eyebrow">Platform</span><p>Web · Design + interactive prototypes</p></div>
     </div>
@@ -234,17 +234,17 @@ section{position:relative}
     <h2 class="sr">The problem</h2>
     <p class="lit" id="lit" aria-label="A pharmacy marketplace only works if every person sees exactly what they should, and can trust everything they can't see.">A pharmacy marketplace only works if every person sees exactly what they should, and can trust everything they can't see.</p>
     <div class="cols2 reveal" style="margin-top:40px">
-      <p class="body">This platform connects pharmacies, providers and patients, with a Super Admin overseeing all of it. Providers collect payment, the platform takes its share, and pharmacies are paid after a holding period. The platform sits in the middle. Providers and pharmacies never see each other.</p>
-      <p class="body">I worked on the three seams where that trust is most fragile: who gets to prescribe (provider management), what a prescription says (directions, or SIG), and what can be sold and by whom (products). Every one of them touches all four roles, and each role needs a different view.</p>
+      <p class="body">This platform connects pharmacies, providers (the doctors and clinics who prescribe) and patients, with an admin team running it. Providers collect payment from patients, the platform takes its share, and pharmacies are paid after a short waiting period. The platform sits in the middle, so providers and pharmacies never see each other.</p>
+      <p class="body">I worked on the three places where trust matters most: who gets to prescribe (verifying providers), what a prescription says (prescription directions), and what can be sold and by whom (medicines). Each one reaches all four roles, and each role has its own app and its own view.</p>
     </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: system map visual">
-    <b>Full-width visual</b><span>[ 16:9 · system map: pharmacy → admin → provider → patient, with money and approval flows ]</span>
+    <b>Full-width visual</b><span>[ 16:9 · system map: pharmacy → admin team → provider → patient, with money and verification flows ]</span>
   </div>
-  <figcaption>Fig. 02 — How the platform fits together</figcaption>
+  <figcaption>Fig. 02 — How the apps fit together</figcaption>
 </figure>
 
 <!-- 4 · CONSTRAINTS -->
@@ -253,9 +253,9 @@ section{position:relative}
     <span class="eyebrow"><i></i>Principles &amp; constraints</span>
     <h2>Three rules that shaped every screen</h2>
     <div class="rows reveal">
-      <article><div class="n">01</div><h3>The platform is the middleman</h3><p class="body">Roles can't open each other's detail pages. Hidden things are simply absent, not greyed out.</p></article>
-      <article><div class="n">02</div><h3>Reversible and attributed</h3><p class="body">Nothing active is hard-deleted. Deactivate or archive instead, and every admin action carries the admin's name.</p></article>
-      <article><div class="n">03</div><h3>Three gates to order</h3><p class="body">A product is orderable only if admin visibility, pharmacy status and the patient's location eligibility all pass.</p></article>
+      <article><div class="n">01</div><h3>The platform sits in the middle</h3><p class="body">People can't open each other's pages. What isn't meant for you is simply missing, not greyed out.</p></article>
+      <article><div class="n">02</div><h3>Reversible and traceable</h3><p class="body">Nothing active is deleted. Pause or archive instead, and every admin action carries the admin's name.</p></article>
+      <article><div class="n">03</div><h3>Three checks before an order</h3><p class="body">A medicine can be ordered only if the admin team allows it, the pharmacy is active, and it can be sent to the patient's state.</p></article>
     </div>
   </div>
 </section>
@@ -263,16 +263,16 @@ section{position:relative}
 <!-- 5 · ROLE MATRIX -->
 <section class="band">
   <div class="wrap">
-    <span class="eyebrow"><i></i>My scope across roles</span>
-    <h2>Same three modules, four different views</h2>
-    <div class="matrix reveal" role="table" aria-label="Scope by role">
-      <div class="mr mh" role="row"><span role="columnheader"></span><span role="columnheader">Provider management</span><span role="columnheader">Directions (SIG)</span><span role="columnheader">Products</span></div>
-      <div class="mr" role="row"><b role="rowheader">Super Admin</b><span>Approve, decline, deactivate, edit, markup levels, financials</span><span>Library of templates, owner and applies-to</span><span>Approve or decline, taxonomy, pricing, visibility</span></div>
-      <div class="mr" role="row"><b role="rowheader">Pharmacy</b><span>Not visible by design</span><span>Templates per product, builder and custom directions</span><span>Submit, edit, deactivate, request changes</span></div>
-      <div class="mr" role="row"><b role="rowheader">Provider</b><span>Own account, credentials, payments setup</span><span>Library plus picker inside a prescription</span><span>Browse by their price level, update pricing</span></div>
-      <div class="mr" role="row"><b role="rowheader">Patient</b><span>Sees "prescribed by"</span><span>Reads directions, can't edit</span><span>Sees medication, price and photo</span></div>
+    <span class="eyebrow"><i></i>How each person experiences the app</span>
+    <h2>Same three areas, four different experiences</h2>
+    <div class="matrix reveal" role="table" aria-label="How each role experiences the app">
+      <div class="mr mh" role="row"><span role="columnheader"></span><span role="columnheader">Verifying providers</span><span role="columnheader">Prescription directions</span><span role="columnheader">Medicines</span></div>
+      <div class="mr" role="row"><b role="rowheader">Admin team</b><span>Verifies new providers, rejects or pauses accounts, and keeps track of the money</span><span>Keeps the shared library of ready-made directions</span><span>Verifies every medicine, manages the shared lists, prices and who can see what</span></div>
+      <div class="mr" role="row"><b role="rowheader">Pharmacy</b><span>Never sees the provider's account</span><span>Writes ready-made directions for each medicine</span><span>Adds medicines, requests changes and pauses items</span></div>
+      <div class="mr" role="row"><b role="rowheader">Provider</b><span>Signs up, gets verified, then manages their own account and payments</span><span>Picks or writes directions while prescribing</span><span>Browses medicines at their own price and adjusts it</span></div>
+      <div class="mr" role="row"><b role="rowheader">Patient</b><span>Sees who prescribed their treatment</span><span>Reads the directions, can't change them</span><span>Sees the medicine, price and photo</span></div>
     </div>
-    <p class="mono ph" style="margin-top:16px">[ Verify the "Not visible by design" cell: the notes flag an open question about what pharmacies may see of the provider. ]</p>
+    <p class="mono ph" style="margin-top:16px">[ Check the pharmacy's "never sees the provider's account" cell: the notes flag an open question about what pharmacies may see of the provider. ]</p>
   </div>
 </section>
 
@@ -282,12 +282,12 @@ section{position:relative}
     <span class="eyebrow"><i></i>Process</span>
     <h2>From rules to clickable prototype</h2>
     <ol class="steps">
-      <li class="reveal"><span class="n">01</span><h3>Map the rules</h3><p class="body">Turned the project brief and client decisions into statuses, permissions and edge cases for each role before drawing a screen.</p></li>
-      <li class="reveal"><span class="n">02</span><h3>Design per role</h3><p class="body">One section per role: auth, dashboard, products, directions, orders, settings, plus empty states, errors and emails.</p></li>
-      <li class="reveal"><span class="n">03</span><h3>Prototype in high fidelity</h3><p class="body">Built single-file interactive HTML from the final designs so the prototype doubles as client demo and developer handoff.</p></li>
-      <li class="reveal"><span class="n">04</span><h3>Review with the client</h3><p class="body">Worked through a feedback queue, for example a sticky status column and a side-by-side renewal view.</p></li>
-      <li class="reveal"><span class="n">05</span><h3>Design enhancements</h3><p class="body">Custom-directions SIG mode, a provider catalog-access tab and a product change approval flow.</p></li>
-      <li class="reveal"><span class="n">06</span><h3>Hand off</h3><p class="body">Documented business rules, open questions and dependency notes for the dev team.</p></li>
+      <li class="reveal"><span class="n">01</span><h3>Map the rules</h3><p class="body">Turned the project brief and client decisions into who can do what, and what happens at each step, before drawing a screen.</p></li>
+      <li class="reveal"><span class="n">02</span><h3>Design per role</h3><p class="body">One set of screens per role: sign-in, home, medicines, directions, orders, settings, plus empty states, errors and emails.</p></li>
+      <li class="reveal"><span class="n">03</span><h3>Prototype in high fidelity</h3><p class="body">Built a clickable prototype from the final designs, used for client demos and as a guide for developers.</p></li>
+      <li class="reveal"><span class="n">04</span><h3>Review with the client</h3><p class="body">Worked through client feedback, for example keeping order status always visible and showing the original prescription beside a renewal request.</p></li>
+      <li class="reveal"><span class="n">05</span><h3>Design enhancements</h3><p class="body">Hand-written directions, a way to control which medicines each provider can see, and a review step for changes to live medicines.</p></li>
+      <li class="reveal"><span class="n">06</span><h3>Hand off</h3><p class="body">Wrote down the business rules, open questions and dependencies for the development team.</p></li>
     </ol>
   </div>
 </section>
@@ -296,118 +296,118 @@ section{position:relative}
 <!-- 7 · KEY DECISIONS -->
 <section class="band" style="padding-bottom:0">
   <div class="wrap">
-    <span class="eyebrow"><i></i>Provider management · Admin</span>
-    <h2>Letting an admin trust a provider, and undo it safely</h2>
+    <span class="eyebrow"><i></i>Verifying providers · Admin team</span>
+    <h2>Letting the admin team trust a provider, and undo it safely</h2>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 01 · Review lifecycle</div>
-        <h3 style="margin-top:14px">Four statuses, one reversible path</h3>
-        <p class="body">Providers move through Pending Review, Active, Declined and Inactive. Declining needs a reason so the provider can fix and resubmit. Deactivating stops new orders and patient assignments at once, while accepted orders are still fulfilled.</p>
-        <p class="because">I chose deactivate over delete, with a confirmation step, because orders in flight still have to be fulfilled and every action needs an audit trail.</p>
+        <div class="eyebrow">Decision 01 · Verification</div>
+        <h3 style="margin-top:14px">Four stages, and every step can be undone</h3>
+        <p class="body">A new provider is verified before they can prescribe: the admin team checks their identity and credentials. Each provider is in one of four stages: waiting for verification, active, rejected or paused. Rejecting needs a reason, so the provider can fix it and apply again. Pausing stops new orders and new patients straight away, while orders already accepted are still fulfilled.</p>
+        <p class="because">I chose pausing over deleting, with a confirmation step, because orders already in progress still have to be fulfilled and every action needs a record of who did it.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">Deactivate provider?</div><div class="skel"></div><div class="skel s"></div><div class="mini"><span>Keep active</span><span class="go">Deactivate anyway</span></div></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Pause this provider?</div><div class="skel"></div><div class="skel s"></div><div class="mini"><span>Keep active</span><span class="go">Pause anyway</span></div></div></div>
     </div>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 02 · Financials</div>
-        <h3 style="margin-top:14px">Refunds that stay inside the system</h3>
-        <p class="body">A patient refund goes back to the provider as account credit, and the next order uses that credit first. Cash refunds happen off-platform, so the admin records them as a manual ledger entry. Add Entry, Manual Adjustment and both refund types live in one tab, next to the provider's markup level.</p>
-        <p class="because">I chose credits over cash refunds because the provider collects payment and every amount must reconcile on the ledger.</p>
+        <div class="eyebrow">Decision 02 · Money</div>
+        <h3 style="margin-top:14px">Refunds that stay inside the platform</h3>
+        <p class="body">When a patient is refunded, the money goes to the provider as account credit, and their next order uses that credit first. Cash refunds happen outside the platform, so the admin team adds them as a manual record. Adding a record, making an adjustment and both kinds of refund live in one tab, next to the provider's share.</p>
+        <p class="because">I chose credit over cash refunds because the provider collects the payment, and every amount has to add up.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">Account credit</div><div class="big" style="display:block"><b style="font-size:36px">$[0,000]</b></div><div class="skel s"></div><p class="cap">[ ledger entry mock ]</p></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Account credit</div><div class="big" style="display:block"><b style="font-size:36px">$[0,000]</b></div><div class="skel s"></div><p class="cap">[ manual record mock ]</p></div></div>
     </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: provider management visual">
-    <b>Full-width visual</b><span>[ 16:9 · provider details page: Overview, Orders, Patients, Financials ]</span>
+    <b>Full-width visual</b><span>[ 16:9 · provider page: overview, orders, patients, money ]</span>
   </div>
-  <figcaption>Fig. 03 — Provider details and financials</figcaption>
+  <figcaption>Fig. 03 — Provider details and money</figcaption>
 </figure>
-<p class="anim-slot" data-anim="provider">Animation: [e.g. status moving Pending Review → Active]</p>
+<p class="anim-slot" data-anim="provider">Animation: [e.g. a provider moving from waiting for verification to active]</p>
 
 <section class="band" style="padding-bottom:0;border-top:0">
   <div class="wrap">
-    <span class="eyebrow"><i></i>Directions (SIG) · Every role</span>
-    <h2>Directions that are fast to pick and hard to get wrong</h2>
+    <span class="eyebrow"><i></i>Prescription directions · Every role</span>
+    <h2>Directions that are quick to pick and hard to get wrong</h2>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 03 · The builder</div>
-        <h3 style="margin-top:14px">A sentence you build, or free text, never both at once</h3>
-        <p class="body">Directions are built as an inline sentence of dropdown and number chips, with correct pluralisation and one optional instruction. A template can also be custom directions only. Editing the full text switches to custom mode and hides the builder, and "Reset to builder" brings it back.</p>
-        <p class="because">I chose one active mode over two parallel inputs because it removes the case where the sentence and the builder disagree.</p>
+        <div class="eyebrow">Decision 03 · Writing directions</div>
+        <h3 style="margin-top:14px">Build a sentence, or write your own, never both at once</h3>
+        <p class="body">Directions are built like a sentence, using dropdowns and number chips, with the right singular and plural, plus one optional note. A template can also be written entirely by hand. Editing the full text switches to hand-written mode and hides the builder, and "Back to builder" brings it back.</p>
+        <p class="because">I chose one mode at a time over two inputs side by side, because it removes the case where the sentence and the builder disagree.</p>
       </div>
       <div class="vis"><div class="mock"><div class="lbl">Directions</div><p style="font-size:13px;line-height:1.9">Take <span class="chip" style="background:rgba(0,113,227,.12);color:#0057B3">1</span> tablet by mouth <span class="chip" style="background:rgba(0,113,227,.12);color:#0057B3">twice daily</span> for <span class="chip" style="background:rgba(0,113,227,.12);color:#0057B3">7</span> days.</p><p class="cap">[ replace with builder screen ]</p></div></div>
     </div>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 04 · Inside a prescription</div>
-        <h3 style="margin-top:14px">One field that searches, filters and falls back</h3>
-        <p class="body">When a provider configures a medication, one field lists directions for that medication from pharmacy templates and their own library. Typing filters them, "+ SIG Builder" opens the builder, and no match becomes free-text custom directions. Patients only read the result.</p>
-        <p class="because">I moved from tabs to a single combined field after testing options with the client, who preferred it. Custom directions don't auto-save to the library; only the builder does.</p>
+        <div class="eyebrow">Decision 04 · While prescribing</div>
+        <h3 style="margin-top:14px">One field that searches, narrows down and lets you write your own</h3>
+        <p class="body">When a provider sets up a medicine for a patient, one field lists directions for that medicine, from the pharmacy's ready-made ones and the provider's own saved ones. Typing narrows the list, "+ Directions builder" opens the builder, and if nothing matches, the provider can write their own. Patients only read the result.</p>
+        <p class="because">I moved from tabs to a single field after trying options with the client, who preferred it. Directions written by hand aren't saved to the library automatically; only the builder saves them.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">Directions (SIG)</div><div class="skel"></div><div class="skel"></div><div class="skel s"></div><p class="cap">[ combined-field mock ]</p></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Directions</div><div class="skel"></div><div class="skel"></div><div class="skel s"></div><p class="cap">[ single-field mock ]</p></div></div>
     </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: directions visual">
-    <b>Full-width visual</b><span>[ 16:9 · the three states: list on focus, filtered while typing, custom when no match ]</span>
+    <b>Full-width visual</b><span>[ 16:9 · the three states: list when selected, narrowed while typing, hand-written when nothing matches ]</span>
   </div>
-  <figcaption>Fig. 04 — Directions picker states</figcaption>
+  <figcaption>Fig. 04 — The directions field, three states</figcaption>
 </figure>
-<p class="anim-slot" data-anim="sig">Animation: [e.g. typing filters the list down to one direction]</p>
+<p class="anim-slot" data-anim="sig">Animation: [e.g. typing narrows the list down to one direction]</p>
 
 <section class="band" style="padding-bottom:0;border-top:0">
   <div class="wrap">
-    <span class="eyebrow"><i></i>Product management · Every role</span>
-    <h2>Deciding what can be sold, and keeping it safe to change</h2>
+    <span class="eyebrow"><i></i>Medicines · Every role</span>
+    <h2>Deciding what can be sold, and keeping changes safe</h2>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 05 · Approval lifecycle</div>
-        <h3 style="margin-top:14px">Pending first, live only when approved</h3>
-        <p class="body">Pharmacies submit products with variations, pricing and directions. Nothing is selectable by providers until the admin approves. A decline requires a reason, and the pharmacy can edit and resubmit. A product is orderable only if admin visibility, pharmacy status and the patient's location eligibility all pass.</p>
-        <p class="because">I chose default-allow visibility with admin overrides over per-product grants because it keeps the catalog usable while still letting admin restrict.</p>
+        <div class="eyebrow">Decision 05 · Verification</div>
+        <h3 style="margin-top:14px">Checked first, live only once verified</h3>
+        <p class="body">Pharmacies add medicines with their options, prices and directions. Providers can't see or prescribe a medicine until the admin team has verified it. If it's rejected, a reason is required, and the pharmacy can fix it and send it again. A medicine can be ordered only when the admin team allows it, the pharmacy is active and it can be sent to the patient's state.</p>
+        <p class="because">I chose "allowed unless the admin team says no" over giving access one medicine at a time, because it keeps the list usable while still letting the admin team restrict.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">Product</div><div class="row"><span>[Name]</span><span class="chip warn">Pending Approval</span></div><div class="skel"></div><div class="mini"><span>Decline</span><span class="go">Approve</span></div></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Medicine</div><div class="row"><span>[Name]</span><span class="chip warn">Waiting for verification</span></div><div class="skel"></div><div class="mini"><span>Reject</span><span class="go">Verify</span></div></div></div>
     </div>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 06 · One shared taxonomy</div>
-        <h3 style="margin-top:14px">Admin owns the lists, pharmacies pick from them</h3>
-        <p class="body">Category, route, dosage form and package type are standardised by the admin. Dosage forms are a tree (route → form → package) with archive instead of delete, inline rename and product-count tooltips. Archiving cascades, and restoring a parent restores its children.</p>
-        <p class="because">I chose archive over delete because products and orders still reference these values.</p>
+        <div class="eyebrow">Decision 06 · Shared lists</div>
+        <h3 style="margin-top:14px">The admin team owns the lists, pharmacies pick from them</h3>
+        <p class="body">Categories, how a medicine is taken (by mouth, injection, on the skin), its form (tablet, cream) and its packaging are set once by the admin team. They are organised as a tree, with archive instead of delete, renaming in place and a count of medicines using each one. Archiving a parent archives what's under it, and restoring it brings them back.</p>
+        <p class="because">I chose archive over delete because medicines and orders still refer to these values.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">Dosage forms</div><div class="skel"></div><div class="skel s"></div><div class="skel"></div><p class="cap">[ tree mock ]</p></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Medicine forms</div><div class="skel"></div><div class="skel s"></div><div class="skel"></div><p class="cap">[ tree mock ]</p></div></div>
     </div>
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 07 · Changing a live product</div>
-        <h3 style="margin-top:14px">Stay live on the old values until the new ones are approved</h3>
-        <p class="body">When a pharmacy edits a live product, it keeps selling on the old values while the change waits in an admin review queue. The admin sees previous and updated values and accepts, or declines with a reason. The existing price-change request folds into the same flow.</p>
-        <p class="because">I chose approval for every field because a small change to a medication can be a safety change. Still open with the client: direct edit vs request box.</p>
+        <div class="eyebrow">Decision 07 · Changing a live medicine</div>
+        <h3 style="margin-top:14px">Keep selling on the old details until the new ones are verified</h3>
+        <p class="body">When a pharmacy edits a live medicine, it keeps selling on the old details while the change waits for the admin team. They see the old and new details side by side, and either verify the change or reject it with a reason. The existing price-change request becomes part of the same flow.</p>
+        <p class="because">I chose verifying every change because even a small change to a medicine can affect safety. Still open with the client: editing directly versus sending a request.</p>
       </div>
-      <div class="vis"><div class="mock"><div class="lbl">Requested changes</div><div class="row"><span>Current</span><span>Requested</span></div><div class="skel"></div><div class="skel s"></div><div class="mini"><span>Decline</span><span class="go">Approve changes</span></div></div></div>
+      <div class="vis"><div class="mock"><div class="lbl">Requested changes</div><div class="row"><span>Current</span><span>Requested</span></div><div class="skel"></div><div class="skel s"></div><div class="mini"><span>Reject</span><span class="go">Verify changes</span></div></div></div>
     </div>
   </div>
 </section>
 
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: product visual">
-    <b>Full-width visual</b><span>[ 16:9 · product lifecycle: submit → review → live → change request ]</span>
+    <b>Full-width visual</b><span>[ 16:9 · medicine lifecycle: add → verify → live → change request ]</span>
   </div>
-  <figcaption>Fig. 05 — Product lifecycle across pharmacy and admin</figcaption>
+  <figcaption>Fig. 05 — A medicine's life across the pharmacy and admin team apps</figcaption>
 </figure>
-<p class="anim-slot" data-anim="products">Animation: [e.g. product moving through states, old and new values diffing]</p>
+<p class="anim-slot" data-anim="products">Animation: [e.g. a medicine moving through stages, old and new details side by side]</p>
 
 <figure class="fullvis reveal">
   <div class="ph-frame" role="img" aria-label="Placeholder: final designs visual">
@@ -423,10 +423,10 @@ section{position:relative}
     <h2>What I delivered</h2>
     <div class="big reveal">
       <div><b>4</b><p>roles designed end to end</p></div>
-      <div><b>3</b><p>modules owned across them</p></div>
+      <div><b>3</b><p>areas owned across them</p></div>
       <div><b>[00]</b><p>[screens / flows / hours] (example)</p></div>
     </div>
-    <p class="body" style="margin-top:28px">Design flows and high-fidelity interactive prototypes for each module, used as both client presentation and developer handoff, with decisions and open questions documented.</p>
+    <p class="body" style="margin-top:28px">Design flows and high-fidelity interactive prototypes for each area, used as both client presentation and developer handoff, with decisions and open questions documented.</p>
     <p class="mono ph" style="margin-top:16px">[ Add real results if you have them: client feedback, adoption, build status. The notes contain no outcome metrics, so none are claimed. ]</p>
   </div>
 </section>
