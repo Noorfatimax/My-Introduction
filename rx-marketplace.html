@@ -382,17 +382,7 @@ section{position:relative}
 
     <div class="decision reveal">
       <div class="copy">
-        <div class="eyebrow">Decision 06 · Shared lists</div>
-        <h3 style="margin-top:14px">The admin team owns the lists, pharmacies pick from them</h3>
-        <p class="body">Categories, how a medicine is taken (by mouth, injection, on the skin), its form (tablet, cream) and its packaging are set once by the admin team. They are organised as a tree, with archive instead of delete, renaming in place and a count of medicines using each one. Archiving a parent archives what's under it, and restoring it brings them back.</p>
-        <p class="because">I chose archive over delete because medicines and orders still refer to these values.</p>
-      </div>
-      <div class="vis"><div class="mock"><div class="lbl">Medicine forms</div><div class="skel"></div><div class="skel s"></div><div class="skel"></div><p class="cap">[ tree mock ]</p></div></div>
-    </div>
-
-    <div class="decision reveal">
-      <div class="copy">
-        <div class="eyebrow">Decision 07 · Changing a live medicine</div>
+        <div class="eyebrow">Decision 06 · Changing a live medicine</div>
         <h3 style="margin-top:14px">Keep selling on the old details until the new ones are verified</h3>
         <p class="body">When a pharmacy edits a live medicine, it keeps selling on the old details while the change waits for the admin team. They see the old and new details side by side, and either verify the change or reject it with a reason. The existing price-change request becomes part of the same flow.</p>
         <p class="because">I chose verifying every change because even a small change to a medicine can affect safety. Still open with the client: editing directly versus sending a request.</p>
