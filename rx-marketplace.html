@@ -167,16 +167,8 @@ section{position:relative}
 
 /* Process: pinned horizontal timeline (solid colours only) */
 .proc{height:calc(100vh + 450vh);height:calc(100svh + 450svh);background:#3A3A3D;color:#EDEDED;border-top:0}
-.pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;padding:clamp(76px,10vh,96px) 0 22px;overflow:hidden}
-.phd .eyebrow{color:#BDBDBD}
-.phead{font:600 clamp(30px,min(5.4vw,8vh),80px)/1.05 var(--m);letter-spacing:-.03em;color:#EDEDED;margin:14px 0 0}
-.scene{width:100%;flex:1;display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,64px);align-items:center;min-height:0;perspective:1200px}
-.stext{transition:opacity .25s var(--ease)}
-.stext.swap{opacity:0}
-.stag{font:500 11px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:#BDBDBD;display:flex;align-items:center;gap:10px}
-.stag i{width:9px;height:9px;background:currentColor;display:inline-block}
-.stext h3{font:600 clamp(26px,3.4vw,46px)/1.1 var(--m);letter-spacing:-.02em;color:#EDEDED;margin:16px 0 14px}
-.stext p{font:400 clamp(14px,1.25vw,17px)/1.6 var(--m);color:#D0D0D0;max-width:30em}
+.pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:70px 0 22px;overflow:hidden}
+.phead{font:600 clamp(30px,min(5.4vw,8vh),80px)/1.05 var(--m);letter-spacing:-.03em;color:#EDEDED;margin:0 auto clamp(40px,8vh,88px);max-width:14em;text-align:center;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
 /* timeline */
 .tl{position:relative;height:122px;flex:none;overflow:hidden}
 .rule{position:absolute;left:0;right:0;top:96px;height:1px;background:rgba(255,255,255,.4)}
@@ -189,9 +181,7 @@ section{position:relative}
 .node::after{content:"";position:absolute;left:0;top:78px;height:18px;width:1px;background:rgba(255,255,255,.6)}
 .tk{position:absolute;top:96px;width:1px;height:6px;background:rgba(255,255,255,.4)}
 .node:focus-visible{outline-offset:-3px}
-@media(max-width:900px){.scene{align-content:center}}
 @media(max-width:700px){.node .no{display:none}.tl{height:108px}.rule{top:84px}.diamond{top:79.5px}.node::after{top:66px}.tk{top:84px}}
-@media(max-height:640px){.stext p{display:none}}
 @media(prefers-reduced-motion:reduce){.proc{height:auto}.pin{position:static;height:auto;min-height:100svh}}
 
 /* Motion (§3.4) */
@@ -293,17 +283,7 @@ section{position:relative}
 <!-- 6 · PROCESS (pinned horizontal timeline, DESIGN_SYSTEM.md 2.11 / 2.12) -->
 <section class="proc" id="process" aria-label="Process">
   <div class="pin">
-    <div class="wrap phd">
-      <span class="eyebrow"><i></i>Process</span>
-      <h2 class="phead">From rules to clickable prototype</h2>
-    </div>
-    <div class="wrap scene">
-      <div class="stext" aria-live="polite">
-        <div class="stag"><i></i><span id="stag">Step 01</span></div>
-        <h3 id="stitle"></h3>
-        <p id="sbody"></p>
-      </div>
-    </div>
+    <h2 class="phead">From rules to clickable prototype</h2>
     <div class="tl" id="tl" role="tablist" aria-label="Process steps">
       <div class="rule"></div><div class="diamond" aria-hidden="true"></div>
       <div class="track" id="track"></div>
@@ -522,8 +502,7 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
    ["06","Hand off","Handoff","Wrote down the business rules, open questions and dependencies for the development team."]
   ];
   var n=steps.length,sec=document.getElementById('process'),track=document.getElementById('track'),
-      stext=document.querySelector('.stext'),stag=document.getElementById('stag'),stitle=document.getElementById('stitle'),
-      sbody=document.getElementById('sbody'),sr=document.getElementById('srsteps');
+      sr=document.getElementById('srsteps');
   if(!sec)return;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,nodes=[],active=-1,nw=300,tick=null;
   steps.forEach(function(st,i){
@@ -536,11 +515,8 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
   function measure(){nw=nodes[0].getBoundingClientRect().width||300;
     track.querySelectorAll('.tk').forEach(function(t){t.style.left=(+t.dataset.i*nw+t.dataset.k*nw/5)+'px'})}
   function setActive(i){
-    if(i===active)return;var first=active<0;active=i;
+    if(i===active)return;active=i;
     nodes.forEach(function(nd,j){nd.setAttribute('aria-selected',j===i?'true':'false');nd.tabIndex=j===i?0:-1});
-    function apply(){var st=steps[i];stag.textContent='Step '+st[0];stitle.textContent=st[1];sbody.textContent=st[3];
-      stext.classList.remove('swap')}
-    if(first||reduce){apply()}else{stext.classList.add('swap');setTimeout(apply,150)}
   }
   function place(f){
     track.style.setProperty('--x',(-f*nw)+'px');
