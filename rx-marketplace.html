@@ -170,18 +170,19 @@ section{position:relative}
 .pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:70px 0 22px;overflow:hidden}
 .phead{font:600 clamp(30px,min(5.4vw,8vh),80px)/1.05 var(--m);letter-spacing:-.03em;color:#EDEDED;margin:0 auto clamp(40px,8vh,88px);max-width:14em;text-align:center;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
 /* timeline */
-.tl{position:relative;height:122px;flex:none;overflow:hidden}
+.tl{position:relative;height:176px;flex:none;overflow:hidden}
 .rule{position:absolute;left:0;right:0;top:96px;height:1px;background:rgba(255,255,255,.4)}
 .diamond{position:absolute;left:50%;top:91.5px;width:9px;height:9px;background:#fff;transform:translateX(-50%) rotate(45deg);z-index:2}
-.track{position:absolute;left:50%;top:0;height:100%;display:flex;transform:translateX(var(--x,0));will-change:transform}
-.node{position:relative;flex:none;width:clamp(150px,24vw,300px);text-align:left;background:none;border:0;color:inherit;font:inherit;padding:0 0 0 12px;cursor:pointer;transition:opacity .25s var(--ease)}
+.track{position:absolute;left:50%;top:0;height:100%;display:flex;align-items:flex-start;transform:translateX(var(--x,0));will-change:transform}
+.node{position:relative;flex:none;width:clamp(150px,24vw,300px);text-align:left;background:none;border:0;color:inherit;font:inherit;padding:0 0 22px 12px;height:96px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;cursor:pointer;transition:opacity .25s var(--ease)}
 .node .nn{font:12px var(--m);color:#BDBDBD;display:block;margin-top:10px}
 .node .nr{font:500 clamp(12px,1.2vw,17px)/1.25 var(--m);color:#F0F0F0;display:block;margin-top:4px}
 .node .no{font:10px var(--f);letter-spacing:.14em;text-transform:uppercase;color:#BDBDBD;display:block;margin-top:4px}
 .node::after{content:"";position:absolute;left:0;top:78px;height:18px;width:1px;background:rgba(255,255,255,.6)}
+.nd{position:absolute;left:0;top:110px;width:calc(100% - 16px);padding-left:12px;font:12px/1.5 var(--m);color:#D0D0D0}
 .tk{position:absolute;top:96px;width:1px;height:6px;background:rgba(255,255,255,.4)}
 .node:focus-visible{outline-offset:-3px}
-@media(max-width:700px){.node .no{display:none}.tl{height:108px}.rule{top:84px}.diamond{top:79.5px}.node::after{top:66px}.tk{top:84px}}
+@media(max-width:700px){.node .no{display:none}.tl{height:170px}.node{height:84px}.nd{top:96px;font-size:11px}.rule{top:84px}.diamond{top:79.5px}.node::after{top:66px}.tk{top:84px}}
 @media(prefers-reduced-motion:reduce){.proc{height:auto}.pin{position:static;height:auto;min-height:100svh}}
 
 /* Motion (§3.4) */
@@ -494,12 +495,12 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 /* process: pinned horizontal timeline */
 (function(){
   var steps=[
-   ["01","Map the rules","Brief","Turned the project brief and client decisions into who can do what, and what happens at each step, before drawing a screen."],
-   ["02","Design per role","Screens","One set of screens per role: sign-in, home, medicines, directions, orders, settings, plus empty states, errors and emails."],
-   ["03","Prototype in high fidelity","Prototype","Built a clickable prototype from the final designs, used for client demos and as a guide for developers."],
-   ["04","Review with the client","Feedback","Worked through client feedback, for example keeping order status always visible and showing the original prescription beside a renewal request."],
-   ["05","Design enhancements","Improve","Hand-written directions, a way to control which medicines each provider can see, and a review step for changes to live medicines."],
-   ["06","Hand off","Handoff","Wrote down the business rules, open questions and dependencies for the development team."]
+   ["01","Map the rules","Brief","Turned the project brief and client decisions into who can do what, and what happens at each step, before drawing a screen.","Turned the brief into who can do what, step by step."],
+   ["02","Design per role","Screens","One set of screens per role: sign-in, home, medicines, directions, orders, settings, plus empty states, errors and emails.","Screens for every role, including empty states and errors."],
+   ["03","Prototype in high fidelity","Prototype","Built a clickable prototype from the final designs, used for client demos and as a guide for developers.","A clickable prototype built from the final designs."],
+   ["04","Review with the client","Feedback","Worked through client feedback, for example keeping order status always visible and showing the original prescription beside a renewal request.","Worked through client feedback and reshaped the flow."],
+   ["05","Design enhancements","Improve","Hand-written directions, a way to control which medicines each provider can see, and a review step for changes to live medicines.","Hand-written directions and a review step for changes."],
+   ["06","Hand off","Handoff","Wrote down the business rules, open questions and dependencies for the development team.","Documented the rules and open questions for developers."]
   ];
   var n=steps.length,sec=document.getElementById('process'),track=document.getElementById('track'),
       sr=document.getElementById('srsteps');
@@ -507,7 +508,7 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,nodes=[],active=-1,nw=300,tick=null;
   steps.forEach(function(st,i){
     var b=document.createElement('button');b.type='button';b.className='node';b.setAttribute('role','tab');b.id='tab'+i;
-    b.innerHTML='<span class="nn">'+st[0]+'</span><span class="nr">'+st[1]+'</span><span class="no">'+st[2]+'</span>';
+    b.innerHTML='<span class="nn">'+st[0]+'</span><span class="nr">'+st[1]+'</span><span class="no">'+st[2]+'</span><span class="nd">'+st[4]+'</span>';
     b.addEventListener('click',function(){goTo(i)});track.appendChild(b);nodes.push(b);
     for(var k=1;k<5;k++){var t=document.createElement('span');t.className='tk';t.dataset.i=i;t.dataset.k=k;track.appendChild(t)}
     var li=document.createElement('li');li.textContent=st[1]+'. '+st[3];sr.appendChild(li);
